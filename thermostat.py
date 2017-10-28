@@ -1,4 +1,9 @@
 #!/usr/bin/python
+# Author: Anderson Silva
+# Email: anderson@the-silvas.com
+# A script which allows you to play with several features of the
+# Raspberry Pi's SenseHAT
+
 from sense_hat import SenseHat
 import time
 
@@ -10,6 +15,7 @@ white = (255,255,255)
 black = (0,0,0)
 yellow = (255,255,0)
 blue = (0,255,255)
+# use Left on the Joystick for help
 sense.show_message("left: help // middle: quit")
 
 while True:
@@ -23,7 +29,7 @@ while True:
             humidity = round(humidity, 1)
             sense.show_message("%s%%" % str(humidity), text_colour=white)
         if event.action == 'pressed' and event.direction == 'left':
-            sense.show_message("up: temp, down: humidity, middle: quit", text_colour=yellow)
+            sense.show_message("up: temperature, down: humidity, right: pressure, left: help, middle: quit", text_colour=yellow)
             sense.clear(black)
         if event.action == 'pressed' and event.direction == 'middle':
             sense.show_message("bye", text_colour=black, back_colour=white)
